@@ -775,7 +775,9 @@
                 parse: function(params, tree)
                 {
                     tree.splice(0,tree.length);
-                    getTemplate(trimQuotes(params.file?params.file:params[0]),tree);
+                    var templateName = trimQuotes(params.file?params.file:params[0]);
+                    delete files[templateName];
+                    getTemplate(templateName,tree);
                 }
             },
 
